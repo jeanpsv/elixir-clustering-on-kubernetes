@@ -3,7 +3,41 @@ version: "3"
 services:
   myapp1:
     build: .
+    command: ["foreground"]
     environment:
       - PORT=4000
       - HOST=example.com
       - SECRET_KEY_BASE=my_super_secret_key_base
+      - APP_IP_ADDRESS=172.16.238.10
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.10
+  myapp2:
+    build: .
+    command: ["foreground"]
+    environment:
+      - PORT=4000
+      - HOST=example.com
+      - SECRET_KEY_BASE=my_super_secret_key_base
+      - APP_IP_ADDRESS=172.16.238.20
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.20
+  myapp3:
+    build: .
+    command: ["foreground"]
+    environment:
+      - PORT=4000
+      - HOST=example.com
+      - SECRET_KEY_BASE=my_super_secret_key_base
+      - APP_IP_ADDRESS=172.16.238.30
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.30
+networks:
+  app_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
