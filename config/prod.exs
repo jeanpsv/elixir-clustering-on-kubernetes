@@ -23,6 +23,9 @@ config :elixir_clustering_on_kubernetes, ElixirClusteringOnKubernetesWeb.Endpoin
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :peerage, via: Peerage.Via.Udp, serves: true
+
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
