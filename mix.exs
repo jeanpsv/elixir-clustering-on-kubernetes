@@ -36,7 +36,8 @@ defmodule ElixirClusteringOnKubernetes.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:distillery, "~> 1.5"}
+      {:distillery, "~> 1.5"},
+      {:peerage, "~> 1.0"}
     ]
   end
 end
