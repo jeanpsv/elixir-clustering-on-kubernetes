@@ -138,9 +138,19 @@ networks:
     ipv4_address: 172.16.238.10
 ```
 
-now run `docker-compose up -d` and `docker exec -it elixir-clustering-on-kubernetes_myapp1_1 _build/prod/rel/elixir_clustering_on_kubernetes/bin/elixir_clustering_on_kubernetes remote_console` to access one node.
+now run:
+```bash
+docker-compose up -d
+```
+
+and
+```bash
+docker exec -it elixir-clustering-on-kubernetes_myapp1_1 _build/prod/rel/elixir_clustering_on_kubernetes/bin/elixir_clustering_on_kubernetes remote_console
+```
+to access one node.
+
 Now, on Elixir console run:
 ```elixir
 iex> Node.list
 ```
-to see list of other connected nodes.
+to see the list of other connected nodes.
