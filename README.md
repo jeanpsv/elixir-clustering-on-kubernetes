@@ -96,6 +96,23 @@ Add the following line to `config/prod.exs`
 config :peerage, via: Peerage.Via.Udp, serves: true
 ```
 
+Add a file called `vm.args` on the application root with the content:
+```txt
+-name myapp@${APP_IP_ADDRESS}
+-setcookie my_awesome_cookie
+```
+Distillery uses this file to add runtime configuration to Elixir VM.
+
+After that, add a reference to this file on the release configuration(`./rel/config.exs`)
+```elixir
+release :elixir_clustering_on_kubernetes do
+  set version: current_version(:elixir_clustering_on_kubernetes)
+  set applications: [
+    :runtime_tools
+  ]
+  set vm_args: "./vm.args"
+```
+
 this configuration (Peerage.Via.Udp) works when the elixir nodes are in the same network. Each node needs a ip address, so just update `docker-compose.yaml` adding a network
 ```yaml
 networks:
@@ -106,7 +123,7 @@ networks:
       config:
         - subnet: 172.16.238.0/24
 ```
-and allocation an ip address to each one:
+and allocation an ip address to each one and setting the value of variable `APP_IP_ADDRESS`(needed in vm.args)
 ```yaml
 myapp1:
 build: .
