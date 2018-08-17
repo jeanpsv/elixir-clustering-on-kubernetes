@@ -13,7 +13,7 @@ I will explain all steps to run an automatic Elixir cluster on Kubernetes
 ### 1. Creating Elixir application (with Phoenix)
 
 Run mix command to create application
-```elixir
+```bash
 mix phx.new elixir-clustering-on-kubernetes --app elixir_clustering_on_kubernetes --no-brunch --no-html --no-ecto
 ```
 
