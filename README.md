@@ -4,7 +4,7 @@ I will explain all steps to run an automatic Elixir cluster on Kubernetes
 
 1. Creating Elixir application (with Phoenix)
 2. Building Elixir release with Distillery
-3. Adding the powerful of Docker!
+3. Adding the power of Docker!
 4. Clustering Elixir application
 5. Deploying on Kubernetes
 
