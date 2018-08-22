@@ -23,8 +23,14 @@ config :elixir_clustering_on_kubernetes, ElixirClusteringOnKubernetesWeb.Endpoin
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :peerage, via: Peerage.Via.Udp, serves: true
+# docker-compose.yaml configuration
+# config :peerage, via: Peerage.Via.Udp, serves: true
 
+# kubernetes configuration
+config :peerage, via: Peerage.Via.Dns,
+  dns_name: "myapp-headless-service.${NAMESPACE}.svc.cluster.local",
+  app_name: "myapp",
+  interval: 5
 
 # ## SSL Support
 #
