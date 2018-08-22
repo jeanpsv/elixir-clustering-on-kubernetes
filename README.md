@@ -71,6 +71,22 @@ That file allow you to run `docker-compose up` to build image and run the applic
 
 tips: use `docker-compose up -d` to detache after application starts running and `docker-compose down` to stop it.
 
+ps: I've generated a Docker image with docker-compose.yaml configuration, so `docker-compose.yaml` is:
+```yaml
+version: "3"
+
+services:
+  myapp1:
+    image: jeanpsv/elixir-clustering-on-kubernetes:docker-compose
+    command: ["foreground"]
+    environment:
+      - PORT=4000
+      - HOST=example.com
+      - SECRET_KEY_BASE=my_super_secret_key_base
+```
+
+so you don't need to build anymore, just `docker-compose up`
+
 
 
 ### 4. Clustering Elixir application
@@ -154,3 +170,28 @@ Now, on Elixir console run:
 iex> Node.list
 ```
 to see the list of other connected nodes.
+
+
+
+### 5. Deploying on Kubernetes
+
+Change the peerage configuration in `config/prod.exs` to:
+```elixir
+config :peerage, via: Peerage.Via.Dns,
+  dns_name: "myapp-headless-service.${NAMESPACE}.svc.cluster.local",
+  app_name: "myapp",
+  interval: 5
+```
+
+and apply the kubernetes recipes in this order:
+
+1. `kubectl apply -f kubernetes/myapp-deployment.yaml`
+2. `kubectl apply -f kubernetes/myapp-headless-service.yaml`
+
+run `remote_console` command on one pod:
+1. `kubectl get pods`
+2. `kubectl exec -it ${myapp-pod-name} _build/prod/rel/elixir_clustering_on_kubernetes/bin/elixir_clustering_on_kubernetes remote_console`
+
+to remove deployment and service, run:
+1. `kubectl delete -f kubernetes/myapp-deployment.yaml`
+2. `kubectl delete -f kubernetes/myapp-headless-service.yaml`
