@@ -195,3 +195,9 @@ run `remote_console` command on one pod:
 to remove deployment and service, run:
 1. `kubectl delete -f kubernetes/myapp-deployment.yaml`
 2. `kubectl delete -f kubernetes/myapp-headless-service.yaml`
+
+
+
+### TODO
+
+1. Implement a Phoenix endpoint to watch connected pods switching messages between them
