@@ -201,3 +201,4 @@ to remove deployment and service, run:
 ### TODO
 
 1. Implement a Phoenix endpoint to watch connected pods switching messages between them
+2. Improve documentation about Kubernetes and teach how to use Minikube
