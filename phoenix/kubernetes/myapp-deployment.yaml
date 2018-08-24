@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: jeanpsv/elixir-clustering-on-kubernetes:kubernetes
+          image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-kubernetes
           imagePullPolicy: Always
           args: ["foreground"]
           ports:

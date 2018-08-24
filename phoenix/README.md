@@ -77,7 +77,7 @@ version: "3"
 
 services:
   myapp1:
-    image: jeanpsv/elixir-clustering-on-kubernetes:docker-compose
+    image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-docker-compose
     command: ["foreground"]
     environment:
       - PORT=4000
@@ -142,13 +142,13 @@ networks:
 and allocation an ip address to each one and setting the value of variable `APP_IP_ADDRESS`(needed in vm.args)
 ```yaml
 myapp1:
-build: .
-command: ["foreground"]
-environment:
-  - PORT=4000
-  - HOST=example.com
-  - SECRET_KEY_BASE=my_super_secret_key_base
-  - APP_IP_ADDRESS=172.16.238.10
+  image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-docker-compose
+  command: ["foreground"]
+  environment:
+    - PORT=4000
+    - HOST=example.com
+    - SECRET_KEY_BASE=my_super_secret_key_base
+    - APP_IP_ADDRESS=172.16.238.10
 networks:
   app_network:
     ipv4_address: 172.16.238.10

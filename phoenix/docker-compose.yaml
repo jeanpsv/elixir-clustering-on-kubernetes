@@ -2,7 +2,7 @@ version: "3"
 
 services:
   myapp1:
-    image: jeanpsv/elixir-clustering-on-kubernetes:docker-compose
+    image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-docker-compose
     command: ["foreground"]
     environment:
       - PORT=4000
@@ -13,7 +13,7 @@ services:
       app_network:
         ipv4_address: 172.16.238.10
   myapp2:
-    image: jeanpsv/elixir-clustering-on-kubernetes:docker-compose
+    image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-docker-compose
     command: ["foreground"]
     environment:
       - PORT=4000
@@ -24,7 +24,7 @@ services:
       app_network:
         ipv4_address: 172.16.238.20
   myapp3:
-    image: jeanpsv/elixir-clustering-on-kubernetes:docker-compose
+    image: jeanpsv/elixir-clustering-on-kubernetes:phoenix-docker-compose
     command: ["foreground"]
     environment:
       - PORT=4000
