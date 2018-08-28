@@ -23,7 +23,8 @@ defmodule ElixirClusteringOnKubernetes.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 2.4"},
-      {:plug, "~> 1.6"}
+      {:plug, "~> 1.6"},
+      {:distillery,  "~> 1.5"}
     ]
   end
 end

@@ -16,3 +16,20 @@ Run mix command to create application
 ```bash
 mix new plug --app elixir_clustering_on_kubernetes --sup
 ```
+
+
+
+### 2. Building Elixir release with Distillery
+
+Add `distillery` lib to `mix.exs` in `deps` list:
+```elixir
+defp deps do
+	[
+		{:cowboy, "~> 2.4"},
+		{:plug, "~> 1.6"},
+		{:distillery, "~> 1.5"}
+	]
+end
+```
+
+After that, just run `mix deps.get`(to download new dependencies), `mix release.init`(to generate release configuration files) and `mix release`(to generate a release).
