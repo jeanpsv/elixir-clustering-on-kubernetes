@@ -31,3 +31,5 @@ defp deps do
 	]
 end
 ```
+
+After that, just run `mix deps.get`(to download new dependencies), `mix release.init`(to generate release configuration files) and `mix release`(to generate a release).
