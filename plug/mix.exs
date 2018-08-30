@@ -24,7 +24,8 @@ defmodule ElixirClusteringOnKubernetes.Mixfile do
     [
       {:cowboy, "~> 2.4"},
       {:plug, "~> 1.6"},
-      {:distillery,  "~> 1.5"}
+      {:distillery,  "~> 1.5"},
+      {:peerage, "~> 1.0"}
     ]
   end
 end

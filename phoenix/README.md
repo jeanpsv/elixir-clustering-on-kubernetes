@@ -149,9 +149,9 @@ myapp1:
     - HOST=example.com
     - SECRET_KEY_BASE=my_super_secret_key_base
     - APP_IP_ADDRESS=172.16.238.10
-networks:
-  app_network:
-    ipv4_address: 172.16.238.10
+	networks:
+	  app_network:
+		ipv4_address: 172.16.238.10
 ```
 
 now run:

@@ -5,11 +5,16 @@ defmodule ElixirClusteringOnKubernetes.Application do
 
   use Application
 
+  alias Plug.Adapters.Cowboy2
+  alias ElixirClusteringOnKubernetes.Call
+
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: ElixirClusteringOnKubernetes.Worker.start_link(arg)
       # {ElixirClusteringOnKubernetes.Worker, arg},
+      {Cowboy2, scheme: :http, plug: Call, options: [port: 4000]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
