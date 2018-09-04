@@ -4,3 +4,4 @@ This project will teachs how to create an Elixir Cluster on Kubernetes. I will i
 
 1. Phoenix application
 2. Plug application
+3. Elixir application
