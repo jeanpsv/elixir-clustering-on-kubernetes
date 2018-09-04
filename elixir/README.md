@@ -1,21 +1,18 @@
 # ElixirClusteringOnKubernetes
 
-**TODO: Add description**
+I will explain all steps to run an automatic Elixir cluster on Kubernetes
 
-## Installation
+1. Creating Elixir application
+2. Building Elixir release with Distillery
+3. Adding the power of Docker!
+4. Clustering Elixir application
+5. Deploying on Kubernetes
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_clustering_on_kubernetes` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [
-    {:elixir_clustering_on_kubernetes, "~> 0.1.0"}
-  ]
-end
+
+### 1. Creating Elixir application
+
+Run mix command to create application
+```bash
+mix new plug --app elixir_clustering_on_kubernetes --sup
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/elixir_clustering_on_kubernetes](https://hexdocs.pm/elixir_clustering_on_kubernetes).
-
