@@ -2,7 +2,7 @@ version: "3"
 
 services:
   myapp1:
-    build: .
+    image: jeanpsv/elixir-clustering-on-kubernetes:plug-docker-compose
     command: ["foreground"]
     ports:
       - "4000:4000"
@@ -12,7 +12,7 @@ services:
       app_network:
         ipv4_address: 172.16.238.10
   myapp2:
-    build: .
+    image: jeanpsv/elixir-clustering-on-kubernetes:plug-docker-compose
     command: ["foreground"]
     ports:
       - "4001:4000"
@@ -22,7 +22,7 @@ services:
       app_network:
         ipv4_address: 172.16.238.20
   myapp3:
-    build: .
+    image: jeanpsv/elixir-clustering-on-kubernetes:plug-docker-compose
     command: ["foreground"]
     ports:
       - "4002:4000"
