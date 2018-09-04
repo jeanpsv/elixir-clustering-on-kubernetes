@@ -4,3 +4,15 @@ services:
   myapp1:
     build: .
     command: ["foreground"]
+    environment:
+      - APP_IP_ADDRESS=172.16.238.10
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.10
+networks:
+  app_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
