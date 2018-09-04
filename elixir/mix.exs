@@ -22,7 +22,8 @@ defmodule ElixirClusteringOnKubernetes.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:distillery, "~> 1.5"}
+      {:distillery, "~> 1.5"},
+      {:peerage, "~> 1.0"}
     ]
   end
 end

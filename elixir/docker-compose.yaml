@@ -2,5 +2,34 @@ version: "3"
 
 services:
   myapp1:
-    build: .
+    image: jeanpsv/elixir-clustering-on-kubernetes:elixir-docker-compose
     command: ["foreground"]
+    environment:
+      - APP_IP_ADDRESS=172.16.238.10
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.10
+  myapp2:
+    image: jeanpsv/elixir-clustering-on-kubernetes:elixir-docker-compose
+    command: ["foreground"]
+    environment:
+      - APP_IP_ADDRESS=172.16.238.20
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.20
+  myapp3:
+    image: jeanpsv/elixir-clustering-on-kubernetes:elixir-docker-compose
+    command: ["foreground"]
+    environment:
+      - APP_IP_ADDRESS=172.16.238.30
+    networks:
+      app_network:
+        ipv4_address: 172.16.238.30
+networks:
+  app_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+

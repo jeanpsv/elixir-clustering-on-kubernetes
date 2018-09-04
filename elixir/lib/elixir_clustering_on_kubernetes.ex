@@ -15,4 +15,8 @@ defmodule ElixirClusteringOnKubernetes do
   def hello do
     :world
   end
+
+   def call do
+     Node.self
+   end
 end
