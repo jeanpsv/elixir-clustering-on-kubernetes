@@ -31,3 +31,9 @@ end
 ```
 
 After that, just run `mix deps.get`(to download new dependencies), `mix release.init`(to generate release configuration files) and `mix release`(to generate a release).
+
+
+
+### 3. Adding the power of Docker!
+
+See implemented `./Dockerfile` to learn the details. To help in development environment I've implemented a `docker-compose.yaml`
