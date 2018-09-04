@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  labels:
+    app: myapp
+spec:
+  backend:
+    serviceName: myapp-service
+    servicePort: http
